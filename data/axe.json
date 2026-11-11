@@ -1,0 +1,45 @@
+{
+  "runs": 15,
+  "issues": [],
+  "consoleErrors": [],
+  "contrast": [
+    {
+      "pair": "secondary ink on paper",
+      "ratio": 7.37
+    },
+    {
+      "pair": "secondary ink on sheet",
+      "ratio": 6.85
+    },
+    {
+      "pair": "dimension blue on paper",
+      "ratio": 6.21
+    },
+    {
+      "pair": "warning on paper",
+      "ratio": 5.28
+    },
+    {
+      "pair": "blocked red on paper",
+      "ratio": 7.17
+    },
+    {
+      "pair": "passed green on paper",
+      "ratio": 6.13
+    },
+    {
+      "pair": "walnut on paper",
+      "ratio": 7.62
+    },
+    {
+      "pair": "secondary ink on sheet panel",
+      "ratio": 6.85
+    }
+  ],
+  "minContrast": 5.28,
+  "widths": [
+    390,
+    820,
+    1440
+  ]
+}

@@ -1,0 +1,44 @@
+🎖️ Rhino's AI tool switches only restrict in-Rhino agents; GPT or Codex connected through MCP still gets every destructive tool. 🎖️
+
+Hi there,
+
+Rather than describe how I'd build your design agent, I built the proof of concept on a sample bedroom: [your Vercel link]
+Measured: 5 .3dm files reopened with McNeel's rhino3dm, 0 mm rebuild difference; 8 of 10 dimensions within ±2.9% from one rendering; 33 tests pass.
+
+=== What the link shows ===
+- Your five instructions, live: walnut floor with planks 180 → 240 mm, oak panels between travertine, wardrobe +100 mm with the tall and drawer units following, three checked wall options, Version 2 saved.
+- Every change is previewed and applied only after Approve; checks cover a 700 mm walkway, clashes and ranges, so "another 300 mm" is blocked with a +30 mm offer.
+- Phase 1 test: dimensions recovered from one rendering plus one drawing dimension; wardrobe depth is weakest (±136 mm), so it comes from the joinery drawing.
+- Real .3dm downloads per version: named layers, material names, closed solids, parameters as user text, spec embedded for rollback.
+- Rhino side: Python functions to bake (one undo per change), capture views, save, restore and detect manual edits; GPT only sends typed tool calls.
+
+=== Similar Work ===
+My client work is under NDA, so each is paired with the closest public product.
+
+1. https://goto.archi : Archi Automate, similar to your conversational Rhino agent
+Role: built the AI agent backend and Manifest V3 extension for an AI browser-automation startup (Agents.ai): FastAPI/WebSocket sessions, mid-task user input, record and replay; incremental DOM tracking cut AI payloads 70–95%
+- Connects AI clients to live CAD and BIM tools through MCP
+- Rhino 8 is one of four hosts, with Revit, Archicad and openBIM
+- Starts read-only; writes need "Allow changes"
+- One Windows installer sets up bridges for detected hosts
+
+2. https://arko.ai : AI rendering plugin, similar to your rendering and design-option phase
+Role: [your Rhino/Grasshopper project: what you modelled or scripted, and for whom]
+- Plugin for SketchUp, Rhino and Revit
+- Works on interior and architectural models
+- Custom and negative prompts steer the output
+- Windows and Mac
+
+=== $25/hr · about 44 hours (~$1,100) for the paid PoC ===
+- M1 (14 h): your rendering reconstructed into a layered, editable .3dm, scaled from drawings
+- M2 (12 h): Rhino 8 tool layer: Python functions, Rhino MCP connection, undo per change, manual-edit check
+- M3 (12 h): OpenAI agent with typed tools, checks, approve/reject, renders, versions, rollback
+- M4 (6 h): your five instructions on your room, documentation, recorded walkthrough
+Timeline: about 8 working days after I receive the rendering, drawings and your Rhino version.
+Location and availability: [your location], [your hours of overlap with Dubai, GMT+4]
+Rhino and Grasshopper examples: [your links]
+
+One question: do you have dimensioned drawings for the PoC room, or at least one true dimension? Without one, everything scales with a guess; a 100 mm ceiling error moved the room width 167 mm in my test.
+
+Thanks,
+James

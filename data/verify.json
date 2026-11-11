@@ -1,0 +1,252 @@
+{
+  "reader": "rhino3dm (Python) 8.35.0",
+  "files": [
+    {
+      "file": "Variant-A.3dm",
+      "units": "UnitSystem.Millimeters",
+      "objects": 205,
+      "layers": 14,
+      "materials": 14,
+      "version": "Option A",
+      "breps": 205,
+      "closedSolids": 205,
+      "withUserText": 205,
+      "byLayer": {
+        "Bedroom::Architecture::Walls": 9,
+        "Bedroom::Architecture::Ceiling": 1,
+        "Bedroom::Architecture::Openings": 6,
+        "Bedroom::Furniture::Soft furnishings": 7,
+        "Bedroom::Finishes::Flooring": 84,
+        "Bedroom::Finishes::Feature wall": 73,
+        "Bedroom::Furniture": 4,
+        "Bedroom::Lighting": 4,
+        "Bedroom::Joinery::Wardrobe": 10,
+        "Bedroom::Joinery::Adjacent units": 7
+      },
+      "parity": {
+        "pythonParts": 205,
+        "fileParts": 205,
+        "mismatched": 0,
+        "maxDeviationMm": 0.0
+      },
+      "facts": {
+        "wardrobe-carcass depth": 700.0,
+        "tall-unit depth": 700.0,
+        "drawer-unit depth": 550.0,
+        "plank width": 240.0,
+        "floor material": "Walnut light",
+        "centre treatment": "fluted"
+      },
+      "expected": {},
+      "ok": true
+    },
+    {
+      "file": "Variant-B.3dm",
+      "units": "UnitSystem.Millimeters",
+      "objects": 147,
+      "layers": 14,
+      "materials": 15,
+      "version": "Option B",
+      "breps": 147,
+      "closedSolids": 147,
+      "withUserText": 147,
+      "byLayer": {
+        "Bedroom::Architecture::Walls": 9,
+        "Bedroom::Architecture::Ceiling": 1,
+        "Bedroom::Architecture::Openings": 6,
+        "Bedroom::Furniture::Soft furnishings": 7,
+        "Bedroom::Finishes::Flooring": 84,
+        "Bedroom::Finishes::Feature wall": 14,
+        "Bedroom::Lighting": 5,
+        "Bedroom::Furniture": 4,
+        "Bedroom::Joinery::Wardrobe": 10,
+        "Bedroom::Joinery::Adjacent units": 7
+      },
+      "parity": {
+        "pythonParts": 147,
+        "fileParts": 147,
+        "mismatched": 0,
+        "maxDeviationMm": 0.0
+      },
+      "facts": {
+        "wardrobe-carcass depth": 700.0,
+        "tall-unit depth": 700.0,
+        "drawer-unit depth": 550.0,
+        "plank width": 240.0,
+        "floor material": "Walnut light",
+        "centre treatment": "plaster_shelf"
+      },
+      "expected": {},
+      "ok": true
+    },
+    {
+      "file": "Variant-C.3dm",
+      "units": "UnitSystem.Millimeters",
+      "objects": 136,
+      "layers": 14,
+      "materials": 13,
+      "version": "Option C",
+      "breps": 136,
+      "closedSolids": 136,
+      "withUserText": 136,
+      "byLayer": {
+        "Bedroom::Architecture::Walls": 9,
+        "Bedroom::Architecture::Ceiling": 1,
+        "Bedroom::Architecture::Openings": 6,
+        "Bedroom::Furniture::Soft furnishings": 7,
+        "Bedroom::Finishes::Flooring": 84,
+        "Bedroom::Finishes::Feature wall": 4,
+        "Bedroom::Furniture": 4,
+        "Bedroom::Lighting": 4,
+        "Bedroom::Joinery::Wardrobe": 10,
+        "Bedroom::Joinery::Adjacent units": 7
+      },
+      "parity": {
+        "pythonParts": 136,
+        "fileParts": 136,
+        "mismatched": 0,
+        "maxDeviationMm": 0.0
+      },
+      "facts": {
+        "wardrobe-carcass depth": 700.0,
+        "tall-unit depth": 700.0,
+        "drawer-unit depth": 550.0,
+        "plank width": 240.0,
+        "floor material": "Walnut light",
+        "centre treatment": "wood_panels"
+      },
+      "expected": {},
+      "ok": true
+    },
+    {
+      "file": "Version-1.3dm",
+      "units": "UnitSystem.Millimeters",
+      "objects": 184,
+      "layers": 14,
+      "materials": 13,
+      "version": "Version 1",
+      "breps": 184,
+      "closedSolids": 184,
+      "withUserText": 184,
+      "byLayer": {
+        "Bedroom::Architecture::Walls": 9,
+        "Bedroom::Architecture::Ceiling": 1,
+        "Bedroom::Architecture::Openings": 6,
+        "Bedroom::Furniture::Soft furnishings": 7,
+        "Bedroom::Finishes::Flooring": 112,
+        "Bedroom::Finishes::Feature wall": 24,
+        "Bedroom::Furniture": 4,
+        "Bedroom::Lighting": 4,
+        "Bedroom::Joinery::Wardrobe": 10,
+        "Bedroom::Joinery::Adjacent units": 7
+      },
+      "parity": {
+        "pythonParts": 184,
+        "fileParts": 184,
+        "mismatched": 0,
+        "maxDeviationMm": 0.0
+      },
+      "facts": {
+        "wardrobe-carcass depth": 600.0,
+        "tall-unit depth": 600.0,
+        "drawer-unit depth": 450.0,
+        "plank width": 180.0,
+        "floor material": "Oak natural",
+        "centre treatment": "travertine"
+      },
+      "expected": {
+        "wardrobe-carcass depth": {
+          "want": 600,
+          "got": 600.0,
+          "ok": true
+        },
+        "plank width": {
+          "want": 180,
+          "got": 180.0,
+          "ok": true
+        },
+        "centre treatment": {
+          "want": "travertine",
+          "got": "travertine",
+          "ok": true
+        },
+        "tall-unit depth": {
+          "want": 600,
+          "got": 600.0,
+          "ok": true
+        },
+        "drawer-unit depth": {
+          "want": 450,
+          "got": 450.0,
+          "ok": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "file": "Version-2.3dm",
+      "units": "UnitSystem.Millimeters",
+      "objects": 146,
+      "layers": 14,
+      "materials": 14,
+      "version": "Version 2",
+      "breps": 146,
+      "closedSolids": 146,
+      "withUserText": 146,
+      "byLayer": {
+        "Bedroom::Architecture::Walls": 9,
+        "Bedroom::Architecture::Ceiling": 1,
+        "Bedroom::Architecture::Openings": 6,
+        "Bedroom::Furniture::Soft furnishings": 7,
+        "Bedroom::Finishes::Flooring": 84,
+        "Bedroom::Finishes::Feature wall": 14,
+        "Bedroom::Furniture": 4,
+        "Bedroom::Lighting": 4,
+        "Bedroom::Joinery::Wardrobe": 10,
+        "Bedroom::Joinery::Adjacent units": 7
+      },
+      "parity": {
+        "pythonParts": 146,
+        "fileParts": 146,
+        "mismatched": 0,
+        "maxDeviationMm": 0.0
+      },
+      "facts": {
+        "wardrobe-carcass depth": 700.0,
+        "tall-unit depth": 700.0,
+        "drawer-unit depth": 550.0,
+        "plank width": 240.0,
+        "floor material": "Walnut light",
+        "centre treatment": "wood_panels"
+      },
+      "expected": {
+        "wardrobe-carcass depth": {
+          "want": 700,
+          "got": 700.0,
+          "ok": true
+        },
+        "plank width": {
+          "want": 240,
+          "got": 240.0,
+          "ok": true
+        },
+        "centre treatment": {
+          "want": "wood_panels",
+          "got": "wood_panels",
+          "ok": true
+        },
+        "tall-unit depth": {
+          "want": 700,
+          "got": 700.0,
+          "ok": true
+        },
+        "drawer-unit depth": {
+          "want": 550,
+          "got": 550.0,
+          "ok": true
+        }
+      },
+      "ok": true
+    }
+  ]
+}

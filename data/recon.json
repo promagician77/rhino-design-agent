@@ -1,0 +1,972 @@
+{
+  "camera": {
+    "pos": [
+      4550,
+      -60,
+      1450
+    ],
+    "target": [
+      2100,
+      3400,
+      1450
+    ],
+    "fovV": 72,
+    "width": 1600,
+    "height": 1000,
+    "shiftY": 0
+  },
+  "image": {
+    "width": 1600,
+    "height": 1000
+  },
+  "points": 29,
+  "clicks": [
+    {
+      "u": 657.3,
+      "v": 336.1
+    },
+    {
+      "u": 1275.2,
+      "v": 214
+    },
+    {
+      "u": 1087.5,
+      "v": 542.9
+    },
+    {
+      "u": 1275.2,
+      "v": 549.3
+    },
+    {
+      "u": 525.6,
+      "v": 726.6
+    },
+    {
+      "u": 853.7,
+      "v": 833.2
+    },
+    {
+      "u": 525.6,
+      "v": 788.4
+    },
+    {
+      "u": 853.7,
+      "v": 924
+    },
+    {
+      "u": 72.6,
+      "v": 184.7
+    },
+    {
+      "u": 647.1,
+      "v": 333.8
+    },
+    {
+      "u": 72.6,
+      "v": 860.7
+    },
+    {
+      "u": 497.7,
+      "v": 734.5
+    },
+    {
+      "u": 853.7,
+      "v": 833.2
+    },
+    {
+      "u": 1017.2,
+      "v": 707.6
+    },
+    {
+      "u": 1206.7,
+      "v": 772.5
+    },
+    {
+      "u": 1206.7,
+      "v": 227.5
+    },
+    {
+      "u": 72.6,
+      "v": 865.8
+    },
+    {
+      "u": 525.6,
+      "v": 788.4
+    },
+    {
+      "u": 853.7,
+      "v": 924
+    },
+    {
+      "u": 657.3,
+      "v": 336.1
+    },
+    {
+      "u": 707.3,
+      "v": 326.2
+    },
+    {
+      "u": 987.3,
+      "v": 270.9
+    },
+    {
+      "u": 1376.9,
+      "v": 75.9
+    },
+    {
+      "u": 72.6,
+      "v": 865.8
+    },
+    {
+      "u": 72.6,
+      "v": 184.7
+    },
+    {
+      "u": 853.7,
+      "v": 924
+    },
+    {
+      "u": 853.7,
+      "v": 833.2
+    },
+    {
+      "u": 1206.7,
+      "v": 772.5
+    },
+    {
+      "u": 1206.7,
+      "v": 321.5
+    }
+  ],
+  "withDrawings": [
+    {
+      "sigma": 0.5,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 72,
+        "p95Abs": 0.32
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": -0.1,
+          "medianAbs": 14.7,
+          "p95Abs": 42,
+          "p95Pct": 0.87
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": -0.4,
+          "medianAbs": 23.2,
+          "p95Abs": 66.3,
+          "p95Pct": 10.7
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": 0.3,
+          "medianAbs": 5.6,
+          "p95Abs": 16.3,
+          "p95Pct": 0.44
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": 0.3,
+          "medianAbs": 8.2,
+          "p95Abs": 23,
+          "p95Pct": 0.85
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": 0.1,
+          "medianAbs": 6.1,
+          "p95Abs": 18.1,
+          "p95Pct": 0.95
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": 0.2,
+          "medianAbs": 5.6,
+          "p95Abs": 16.5,
+          "p95Pct": 0.74
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": -0.2,
+          "medianAbs": 18.2,
+          "p95Abs": 51.7,
+          "p95Pct": 2.15
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": -0.1,
+          "medianAbs": 1.6,
+          "p95Abs": 4.7,
+          "p95Pct": 1.47
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": 0,
+          "medianAbs": 2.7,
+          "p95Abs": 7.5,
+          "p95Pct": 1.26
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": 0,
+          "medianAbs": 1.6,
+          "p95Abs": 4.3,
+          "p95Pct": 0.36
+        }
+      ]
+    },
+    {
+      "sigma": 1,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 71.99,
+        "p95Abs": 0.61
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": -0.9,
+          "medianAbs": 29.1,
+          "p95Abs": 82.9,
+          "p95Pct": 1.73
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": -1.8,
+          "medianAbs": 46.4,
+          "p95Abs": 135.8,
+          "p95Pct": 21.9
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": 0,
+          "medianAbs": 11.4,
+          "p95Abs": 32,
+          "p95Pct": 0.87
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": 0.4,
+          "medianAbs": 16,
+          "p95Abs": 46.9,
+          "p95Pct": 1.74
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": 1.1,
+          "medianAbs": 12.9,
+          "p95Abs": 36.1,
+          "p95Pct": 1.9
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": -0.2,
+          "medianAbs": 10.7,
+          "p95Abs": 31.8,
+          "p95Pct": 1.42
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": -1.7,
+          "medianAbs": 36,
+          "p95Abs": 102.6,
+          "p95Pct": 4.27
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": 0,
+          "medianAbs": 3.3,
+          "p95Abs": 9.3,
+          "p95Pct": 2.9
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": -0.1,
+          "medianAbs": 5.2,
+          "p95Abs": 15.3,
+          "p95Pct": 2.55
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": 0,
+          "medianAbs": 2.9,
+          "p95Abs": 9,
+          "p95Pct": 0.75
+        }
+      ]
+    },
+    {
+      "sigma": 2,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 72.02,
+        "p95Abs": 1.28
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": 1.7,
+          "medianAbs": 58.7,
+          "p95Abs": 166,
+          "p95Pct": 3.46
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": 1.9,
+          "medianAbs": 94.7,
+          "p95Abs": 273.9,
+          "p95Pct": 44.18
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": 1.1,
+          "medianAbs": 22.7,
+          "p95Abs": 64.3,
+          "p95Pct": 1.75
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": -0.2,
+          "medianAbs": 33.7,
+          "p95Abs": 97,
+          "p95Pct": 3.59
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": -0.4,
+          "medianAbs": 25.3,
+          "p95Abs": 75.3,
+          "p95Pct": 3.96
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": 1.2,
+          "medianAbs": 22.3,
+          "p95Abs": 63.7,
+          "p95Pct": 2.86
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": 2.4,
+          "medianAbs": 71.5,
+          "p95Abs": 206.5,
+          "p95Pct": 8.61
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": -0.1,
+          "medianAbs": 6.1,
+          "p95Abs": 17.9,
+          "p95Pct": 5.59
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": 0.3,
+          "medianAbs": 10.7,
+          "p95Abs": 31.2,
+          "p95Pct": 5.19
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": 0,
+          "medianAbs": 6.2,
+          "p95Abs": 17.3,
+          "p95Pct": 1.44
+        }
+      ]
+    },
+    {
+      "sigma": 3,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 72.06,
+        "p95Abs": 1.88
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": -0.5,
+          "medianAbs": 88.7,
+          "p95Abs": 259.9,
+          "p95Pct": 5.41
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": -4,
+          "medianAbs": 142.3,
+          "p95Abs": 418.6,
+          "p95Pct": 67.52
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": -0.1,
+          "medianAbs": 32.5,
+          "p95Abs": 96,
+          "p95Pct": 2.61
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": 3.9,
+          "medianAbs": 49.4,
+          "p95Abs": 148.8,
+          "p95Pct": 5.51
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": 1.7,
+          "medianAbs": 37.7,
+          "p95Abs": 109,
+          "p95Pct": 5.74
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": -0.4,
+          "medianAbs": 31.2,
+          "p95Abs": 94.8,
+          "p95Pct": 4.25
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": -1.9,
+          "medianAbs": 109.4,
+          "p95Abs": 325.1,
+          "p95Pct": 13.55
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": 0.3,
+          "medianAbs": 9.6,
+          "p95Abs": 27,
+          "p95Pct": 8.44
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": -1.2,
+          "medianAbs": 16.3,
+          "p95Abs": 46,
+          "p95Pct": 7.66
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": -0.1,
+          "medianAbs": 9.2,
+          "p95Abs": 26,
+          "p95Pct": 2.17
+        }
+      ]
+    }
+  ],
+  "noDrawings": {
+    "sigma": 1,
+    "trials": 2000,
+    "failed": 0,
+    "fovV": {
+      "truth": 72,
+      "median": 72,
+      "p95Abs": 0.64
+    },
+    "rows": [
+      {
+        "dimension": "Room width (wall to wall)",
+        "truth": 4800,
+        "meanErr": 167.3,
+        "medianAbs": 166.7,
+        "p95Abs": 243.4,
+        "p95Pct": 5.07
+      },
+      {
+        "dimension": "Wardrobe front from wall",
+        "truth": 620,
+        "meanErr": 22.7,
+        "medianAbs": 51.9,
+        "p95Abs": 149.3,
+        "p95Pct": 24.09
+      },
+      {
+        "dimension": "Wardrobe run to feature wall",
+        "truth": 3680,
+        "meanErr": 127.3,
+        "medianAbs": 127.4,
+        "p95Abs": 155.7,
+        "p95Pct": 4.23
+      },
+      {
+        "dimension": "Wardrobe height",
+        "truth": 2700,
+        "meanErr": 93.7,
+        "medianAbs": 93.3,
+        "p95Abs": 135.6,
+        "p95Pct": 5.02
+      },
+      {
+        "dimension": "Bed width",
+        "truth": 1900,
+        "meanErr": 66.3,
+        "medianAbs": 66.5,
+        "p95Abs": 98,
+        "p95Pct": 5.16
+      },
+      {
+        "dimension": "Bed + headboard length",
+        "truth": 2230,
+        "meanErr": 76.4,
+        "medianAbs": 75.8,
+        "p95Abs": 104.5,
+        "p95Pct": 4.69
+      },
+      {
+        "dimension": "Bed centre from west wall",
+        "truth": 2400,
+        "meanErr": 83.8,
+        "medianAbs": 82.8,
+        "p95Abs": 176.4,
+        "p95Pct": 7.35
+      },
+      {
+        "dimension": "Bed height",
+        "truth": 320,
+        "meanErr": 10.7,
+        "medianAbs": 10.5,
+        "p95Abs": 18.9,
+        "p95Pct": 5.9
+      },
+      {
+        "dimension": "Travertine slab width",
+        "truth": 600,
+        "meanErr": 20.7,
+        "medianAbs": 20.7,
+        "p95Abs": 34,
+        "p95Pct": 5.67
+      },
+      {
+        "dimension": "Travertine slab height",
+        "truth": 1200,
+        "meanErr": 41.5,
+        "medianAbs": 41.5,
+        "p95Abs": 49.3,
+        "p95Pct": 4.11
+      }
+    ]
+  },
+  "lensShift": {
+    "note": "Same rendering made with a vertical lens shift of 12% of the image height, a common way to keep verticals straight.",
+    "assumeCentre": {
+      "sigma": 1,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 72.84,
+        "p95Abs": 1.45
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": 320.3,
+          "medianAbs": 320.4,
+          "p95Abs": 398.7,
+          "p95Pct": 8.31
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": 145.8,
+          "medianAbs": 146.1,
+          "p95Abs": 258.8,
+          "p95Pct": 41.74
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": -130.5,
+          "medianAbs": 130.6,
+          "p95Abs": 157.1,
+          "p95Pct": 4.27
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": -39.5,
+          "medianAbs": 40.1,
+          "p95Abs": 78.8,
+          "p95Pct": 2.92
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": -68.6,
+          "medianAbs": 68.9,
+          "p95Abs": 99,
+          "p95Pct": 5.21
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": -76.6,
+          "medianAbs": 76.8,
+          "p95Abs": 101.8,
+          "p95Pct": 4.57
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": 85.5,
+          "medianAbs": 86.9,
+          "p95Abs": 179.2,
+          "p95Pct": 7.47
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": -38.3,
+          "medianAbs": 38.3,
+          "p95Abs": 45.3,
+          "p95Pct": 14.15
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": 40.1,
+          "medianAbs": 40,
+          "p95Abs": 53.9,
+          "p95Pct": 8.98
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": -21.2,
+          "medianAbs": 21.2,
+          "p95Abs": 29.2,
+          "p95Pct": 2.44
+        }
+      ]
+    },
+    "fromHorizon": {
+      "sigma": 1,
+      "trials": 2000,
+      "failed": 0,
+      "fovV": {
+        "truth": 72,
+        "median": 72.02,
+        "p95Abs": 0.62
+      },
+      "rows": [
+        {
+          "dimension": "Room width (wall to wall)",
+          "truth": 4800,
+          "meanErr": -0.1,
+          "medianAbs": 29.6,
+          "p95Abs": 87.8,
+          "p95Pct": 1.83
+        },
+        {
+          "dimension": "Wardrobe front from wall",
+          "truth": 620,
+          "meanErr": 0.9,
+          "medianAbs": 47.6,
+          "p95Abs": 139.5,
+          "p95Pct": 22.5
+        },
+        {
+          "dimension": "Wardrobe run to feature wall",
+          "truth": 3680,
+          "meanErr": -0.1,
+          "medianAbs": 10.9,
+          "p95Abs": 32.7,
+          "p95Pct": 0.89
+        },
+        {
+          "dimension": "Wardrobe height",
+          "truth": 2700,
+          "meanErr": -0.8,
+          "medianAbs": 16,
+          "p95Abs": 48.5,
+          "p95Pct": 1.8
+        },
+        {
+          "dimension": "Bed width",
+          "truth": 1900,
+          "meanErr": -0.3,
+          "medianAbs": 12.6,
+          "p95Abs": 35.6,
+          "p95Pct": 1.87
+        },
+        {
+          "dimension": "Bed + headboard length",
+          "truth": 2230,
+          "meanErr": 0.2,
+          "medianAbs": 11.1,
+          "p95Abs": 32.6,
+          "p95Pct": 1.46
+        },
+        {
+          "dimension": "Bed centre from west wall",
+          "truth": 2400,
+          "meanErr": 0.3,
+          "medianAbs": 36.4,
+          "p95Abs": 107.3,
+          "p95Pct": 4.47
+        },
+        {
+          "dimension": "Bed height",
+          "truth": 320,
+          "meanErr": -0.1,
+          "medianAbs": 3.1,
+          "p95Abs": 8.8,
+          "p95Pct": 2.75
+        },
+        {
+          "dimension": "Travertine slab width",
+          "truth": 600,
+          "meanErr": 0.1,
+          "medianAbs": 5.3,
+          "p95Abs": 15.9,
+          "p95Pct": 2.65
+        },
+        {
+          "dimension": "Travertine slab height",
+          "truth": 1200,
+          "meanErr": -0.1,
+          "medianAbs": 3.1,
+          "p95Abs": 9.1,
+          "p95Pct": 0.76
+        }
+      ]
+    }
+  },
+  "plan": {
+    "linesX": [
+      [
+        [
+          0,
+          4180,
+          2900
+        ],
+        [
+          4500,
+          4180,
+          2900
+        ]
+      ],
+      [
+        [
+          3600,
+          4180,
+          1200
+        ],
+        [
+          4500,
+          4180,
+          1200
+        ]
+      ],
+      [
+        [
+          1450,
+          1950,
+          320
+        ],
+        [
+          3350,
+          1950,
+          320
+        ]
+      ],
+      [
+        [
+          1450,
+          1950,
+          12
+        ],
+        [
+          3350,
+          1950,
+          12
+        ]
+      ]
+    ],
+    "linesY": [
+      [
+        [
+          620,
+          500,
+          2700
+        ],
+        [
+          620,
+          3500,
+          2700
+        ]
+      ],
+      [
+        [
+          620,
+          500,
+          20
+        ],
+        [
+          620,
+          2300,
+          20
+        ]
+      ],
+      [
+        [
+          3350,
+          1950,
+          320
+        ],
+        [
+          3350,
+          3680,
+          320
+        ]
+      ]
+    ],
+    "origin": [
+      4200,
+      4180,
+      0
+    ],
+    "originTop": [
+      4200,
+      4180,
+      2900
+    ],
+    "floor": {
+      "wardrobeFrontS": [
+        620,
+        500,
+        0
+      ],
+      "bedFootL": [
+        1450,
+        1950,
+        12
+      ],
+      "bedFootR": [
+        3350,
+        1950,
+        12
+      ]
+    },
+    "zmm": {
+      "bedFootL": 12,
+      "bedFootR": 12,
+      "bedHeight": 12
+    },
+    "ceiling": {
+      "cornerNW": [
+        0,
+        4180,
+        2900
+      ],
+      "joint1": [
+        600,
+        4180,
+        2900
+      ],
+      "joint5": [
+        3000,
+        4180,
+        2900
+      ],
+      "eastWall": [
+        4800,
+        3000,
+        2900
+      ]
+    },
+    "verticals": {
+      "wardrobeHeight": [
+        [
+          620,
+          500,
+          0
+        ],
+        [
+          620,
+          500,
+          2700
+        ]
+      ],
+      "bedHeight": [
+        [
+          3350,
+          1950,
+          12
+        ],
+        [
+          3350,
+          1950,
+          320
+        ]
+      ],
+      "slabHeight": [
+        [
+          4200,
+          4180,
+          0
+        ],
+        [
+          4200,
+          4180,
+          2400
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rhino design agent: proof of concept on a sample bedroom</title>
+<meta name="description" content="Natural-language edits to an editable Rhino model: reconstruction from a rendering, typed AI tool calls, approvals, versions and verified .3dm files.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/hanken-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="strip">
+  <p class="proj"><b>Master bedroom, sample villa</b><span>Proof of concept for the Rhino design agent brief</span></p>
+  <nav aria-label="Sheets"><ol>
+    <li><a href="#model">A-000 Model and agent</a></li><li><a href="#phase1">A-101 Reconstruction</a></li><li><a href="#phase2">A-201 Agent and Rhino</a></li><li><a href="#phase3">A-301 Interface and versions</a></li><li><a href="#phase4">A-401 Testing and handover</a></li>
+  </ol></nav>
+</header>
+<main id="main">
+<section class="hero" id="model" aria-labelledby="hero-t">
+  <div class="hero-text">
+    <h1 id="hero-t">Type the change. Approve it. Open the .3dm.</h1>
+    <p class="lede">The five instructions from your brief, running against an editable model of a sample bedroom: every edit is shown before it is applied, checked against simple design rules, saved as a version and written as a Rhino file you can open.</p>
+  </div>
+  <div class="work">
+    <div class="left">
+    <div class="viewport">
+      <div class="vp-bar">
+        <div class="views" role="group" aria-label="View"><button type="button" data-view="hero" aria-pressed="true">Perspective</button><button type="button" data-view="bed" aria-pressed="false">Bed wall</button><button type="button" data-view="wardrobe" aria-pressed="false">Wardrobe</button><button type="button" data-view="plan" aria-pressed="false">Plan</button></div>
+        <p class="vp-state" id="vp-state" aria-live="polite">Version 1</p>
+      </div>
+      <div class="canvas-wrap">
+        <img class="poster" src="renders/Version-1-hero.webp" alt="" width="1600" height="1000" fetchpriority="high">
+        <canvas id="view" tabindex="0" aria-label="3D view of the bedroom model. Drag to orbit, scroll to zoom, click an object to see its Rhino properties."></canvas>
+        <div class="props" id="props" hidden></div>
+      </div>
+      <p class="vp-note">Point at the view to make it live, then drag to orbit. Click any object for the properties Rhino will show. Blue edges mark what a pending change touches.</p>
+    </div>
+  <div class="versions" aria-labelledby="ver-t"><h2 id="ver-t">Versions</h2><ol id="versions" data-prebuilt="{&quot;141083951aad50&quot;:&quot;Version-1.3dm&quot;,&quot;06e89f990af5de&quot;:&quot;Variant-A.3dm&quot;,&quot;032b27e435c123&quot;:&quot;Variant-B.3dm&quot;,&quot;1c9a0fc95be235&quot;:&quot;Variant-C.3dm&quot;,&quot;10c0b2fd923ee2&quot;:&quot;Version-2.3dm&quot;}"></ol></div>
+    </div>
+    <div class="chat" aria-labelledby="chat-t">
+      <h2 id="chat-t" class="chat-h">Instructions</h2>
+      <ol class="chips" aria-label="Instructions from the brief"><li><button type="button" class="chip" data-say="Change the bedroom flooring to light walnut with wider planks."><span class="no">1</span>Change the bedroom flooring to light walnut with wider planks.</button></li><li><button type="button" class="chip" data-say="Replace the central wall treatment with large-format wood panels while retaining travertine on either side."><span class="no">2</span>Replace the central wall treatment with large-format wood panels while retaining travertine on either side.</button></li><li><button type="button" class="chip" data-say="Increase the wardrobe depth by 100 mm and adjust the adjacent cabinetry."><span class="no">3</span>Increase the wardrobe depth by 100 mm and adjust the adjacent cabinetry.</button></li><li><button type="button" class="chip" data-say="Generate three alternative designs for the feature wall."><span class="no">4</span>Generate three alternative designs for the feature wall.</button></li><li><button type="button" class="chip" data-say="Show me the updated rendering and save this as Version 2."><span class="no">5</span>Show me the updated rendering and save this as Version 2.</button></li>
+        <li><button type="button" class="chip alt" data-say="Increase the wardrobe depth by another 300 mm."><span class="no">+</span>Increase the wardrobe depth by another 300 mm.</button></li>
+      </ol>
+      <div class="log" id="log" role="log" aria-live="polite" aria-label="Conversation"></div>
+      <form class="ask" id="ask"><label for="say" class="vh">Instruction</label><input id="say" name="say" autocomplete="off" placeholder="For example: make the bed 200 mm wider"><button type="submit">Send</button></form>
+      <p class="engine">Offline parser in this demo; production sends the same tool schema to OpenAI.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="sheet" id="phase1" aria-labelledby="phase1-t">
+  <header class="sheet-head"><h2 id="phase1-t">Phase 1. From a rendering to an editable model</h2>
+    <dl class="tb"><div><dt>Sheet</dt><dd>A-101</dd></div><div><dt>Status</dt><dd>Measured on a test rendering</dd></div></dl></header>
+  
+<div class="cols">
+  <figure class="figure">
+    <div class="ov-wrap"><img src="renders/Version-1-hero.webp" alt="Test rendering of the sample bedroom: wardrobe on the left, bed against a travertine feature wall, pendants either side." width="1600" height="1000" loading="lazy"><svg class="overlay" viewBox="0 0 1600 1000" role="img" aria-label="Clicked edges and corners on the test rendering. Edges along the room's two axes are extended toward their vanishing points.">
+  <g class="ext"><line class="x" x1="-2285.8" y1="917.8" x2="4218.3" y2="-367.6"/><line class="x" x1="-1910.8" y1="440.8" x2="4273.5" y2="651.5"/><line class="x" x1="-2327.6" y1="-200.4" x2="3706.9" y2="1760.2"/><line class="x" x1="-2246.8" y1="-357.8" x2="3626.1" y2="2070.2"/><line class="y" x1="-2831.2" y1="-569.1" x2="3550.9" y2="1087.6"/><line class="y" x1="-2803.3" y1="1714.7" x2="3373.6" y2="-119.5"/><line class="y" x1="-1525.0" y1="2661.3" x2="3395.9" y2="-1120.4"/></g>
+  <g class="seg"><line class="x" x1="657.3" y1="336.1" x2="1275.2" y2="214.0"/><line class="x" x1="1087.5" y1="542.9" x2="1275.2" y2="549.3"/><line class="x" x1="525.6" y1="726.6" x2="853.7" y2="833.2"/><line class="x" x1="525.6" y1="788.4" x2="853.7" y2="924.0"/><line class="y" x1="72.6" y1="184.7" x2="647.1" y2="333.8"/><line class="y" x1="72.6" y1="860.7" x2="497.7" y2="734.5"/><line class="y" x1="853.7" y1="833.2" x2="1017.2" y2="707.6"/><line class="z" x1="72.6" y1="865.8" x2="72.6" y2="184.7"/><line class="z" x1="853.7" y1="924.0" x2="853.7" y2="833.2"/><line class="z" x1="1206.7" y1="772.5" x2="1206.7" y2="321.5"/></g>
+  <g class="pts"><circle cx="1206.7" cy="772.5" r="7"/><text x="1218.7" y="762.5">origin</text><circle cx="1206.7" cy="227.5" r="7"/><text x="1218.7" y="217.5">ceiling 2,900 (drawing)</text><circle cx="72.6" cy="865.8" r="7"/><circle cx="525.6" cy="788.4" r="7"/><circle cx="853.7" cy="924.0" r="7"/><circle cx="657.3" cy="336.1" r="7"/><circle cx="707.3" cy="326.2" r="7"/><circle cx="987.3" cy="270.9" r="7"/><circle cx="1376.9" cy="75.9" r="7"/><circle cx="72.6" cy="184.7" r="7"/><circle cx="853.7" cy="833.2" r="7"/><circle cx="1206.7" cy="321.5" r="7"/></g>
+</svg></div>
+    <figcaption>The test rendering, made from a model whose true dimensions are hidden from the method. Blue: edges along the room width. Walnut: edges along the room depth. Dots: corners clicked for measurement.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>A designer clicks about 29 points on the rendering. Edges that run along the two room axes meet at two vanishing points, which give the lens and the camera angle. One dimension from your drawings (here the ceiling height) sets the scale. Everything else is then placed in millimetres.</p>
+    <ul class="findings">
+      <li><b>With one true dimension</b>, 8 of the 10 dimensions come back within ±2.9% at one pixel of click error.</li>
+      <li><b>Anything measured from the west wall is weak</b>, because this camera sees that wall edge-on behind the wardrobe: wardrobe front from wall ±136 mm, bed centre from west wall ±103 mm. Wardrobe depth is the dimension instruction 3 changes, so it comes from the joinery drawing or a second view, not from the image.</li>
+      <li><b>Without drawings</b>, every dimension scales with the guess: assuming a 3,000 mm ceiling instead of 2,900 makes the room 167 mm too wide.</li>
+      <li><b>Lens shift</b>, often used to keep verticals straight, skews the result by 320 mm on the room width if the image centre is assumed; taking the centre from the horizon brings it back to 0 mm.</li>
+    </ul>
+  </div>
+</div>
+<table class="data recon"><caption>Recovered from the test rendering, 2,000 repeats per click error. <span class="cap2">95% of results fall within the ± value.</span></caption>
+  <thead><tr><th scope="col">Dimension</th><th scope="col" class="n">True</th><th scope="col" class="n">0.5 px</th><th scope="col" class="n">1 px</th><th scope="col" class="n">2 px</th><th scope="col" class="n">3 px</th></tr></thead>
+  <tbody><tr><th scope="row">Room width (wall to wall)</th><td class="n">4,800</td><td class="n">±42</td><td class="n">±83</td><td class="n">±166</td><td class="n">±260</td></tr><tr class="weak"><th scope="row">Wardrobe front from wall</th><td class="n">620</td><td class="n">±66</td><td class="n">±136</td><td class="n">±274</td><td class="n">±419</td></tr><tr><th scope="row">Wardrobe run to feature wall</th><td class="n">3,680</td><td class="n">±16</td><td class="n">±32</td><td class="n">±64</td><td class="n">±96</td></tr><tr><th scope="row">Wardrobe height</th><td class="n">2,700</td><td class="n">±23</td><td class="n">±47</td><td class="n">±97</td><td class="n">±149</td></tr><tr><th scope="row">Bed width</th><td class="n">1,900</td><td class="n">±18</td><td class="n">±36</td><td class="n">±75</td><td class="n">±109</td></tr><tr><th scope="row">Bed + headboard length</th><td class="n">2,230</td><td class="n">±17</td><td class="n">±32</td><td class="n">±64</td><td class="n">±95</td></tr><tr class="weak"><th scope="row">Bed centre from west wall</th><td class="n">2,400</td><td class="n">±52</td><td class="n">±103</td><td class="n">±207</td><td class="n">±325</td></tr><tr><th scope="row">Bed height</th><td class="n">320</td><td class="n">±5</td><td class="n">±9</td><td class="n">±18</td><td class="n">±27</td></tr><tr><th scope="row">Travertine slab width</th><td class="n">600</td><td class="n">±8</td><td class="n">±15</td><td class="n">±31</td><td class="n">±46</td></tr><tr><th scope="row">Travertine slab height</th><td class="n">1,200</td><td class="n">±4</td><td class="n">±9</td><td class="n">±17</td><td class="n">±26</td></tr></tbody></table>
+<div class="cols">
+  <div class="prose">
+    <h3>The model behind Version 1</h3>
+    <p>The measurements fill one design spec: room, openings, flooring, three feature-wall zones, wardrobe and the units beside it, bed, bedside tables, rug and lights. A generator turns the spec into 184 closed solids on named layers, with the studio's material names and the parameters stored on each object as Rhino user text. The same spec is stored inside the .3dm, so any saved version can be rebuilt or edited later.</p>
+    <p><a class="dl big" href="models/Version-1.3dm" download>Download Version-1.3dm</a></p>
+  </div>
+  <div><h3 class="small">Layers in Version-1.3dm, with object counts</h3><ul class="layers" aria-label="Layer tree of Version-1.3dm as read back by rhino3dm"><li style="--d:1"><span>Architecture / Ceiling</span><b>1</b></li><li style="--d:1"><span>Architecture / Openings</span><b>6</b></li><li style="--d:1"><span>Architecture / Walls</span><b>9</b></li><li style="--d:1"><span>Finishes / Feature wall</span><b>24</b></li><li style="--d:1"><span>Finishes / Flooring</span><b>112</b></li><li style="--d:0"><span>Furniture</span><b>4</b></li><li style="--d:1"><span>Furniture / Soft furnishings</span><b>7</b></li><li style="--d:1"><span>Joinery / Adjacent units</span><b>7</b></li><li style="--d:1"><span>Joinery / Wardrobe</span><b>10</b></li><li style="--d:0"><span>Lighting</span><b>4</b></li></ul></div>
+</div>
+</section>
+
+<section class="sheet" id="phase2" aria-labelledby="phase2-t">
+  <header class="sheet-head"><h2 id="phase2-t">Phase 2. The agent and the Rhino connection</h2>
+    <dl class="tb"><div><dt>Sheet</dt><dd>A-201</dd></div><div><dt>Status</dt><dd>Built and tested outside Rhino</dd></div></dl></header>
+  
+<div class="arch" role="img" aria-label="Flow: the designer writes an instruction; the language model returns typed tool calls; the app validates them and runs design checks; the designer approves; the app calls fixed Python functions inside Rhino 8 through the Rhino MCP server; Rhino writes the version file and renders.">
+  <div class="node you"><b>Designer</b><span>writes an instruction, approves or rejects</span></div>
+  <div class="node"><b>OpenAI model</b><span>returns typed tool calls from 9 strict schemas; never code</span></div>
+  <div class="node"><b>App</b><span>validates, applies to the spec, runs the design checks, shows the diff</span></div>
+  <div class="node rh"><b>Rhino 8</b><span>fixed functions over Rhino MCP: bake, capture, save version, restore, check for manual edits</span></div>
+  <div class="node"><b>Versions</b><span>.3dm with the spec inside, renders, rollback</span></div>
+</div>
+<div class="cols">
+  <div class="prose">
+    <h3>Why the model gets tools, not Rhino</h3>
+    <p>McNeel's Rhino AI groups its tools as read-only, modify and destructive, and running scripts or saving files sit in the destructive group. Unchecking a group only hides it from agents inside Rhino's own panel; an external client connected over MCP still sees every tool. So in this design the app is the only MCP client. The model can only ask for the 9 actions below, the app checks every argument, and Rhino runs one of 7 reviewed Python functions with plain data. The script line sent to Rhino carries the arguments as base64, so a crafted label cannot become code.</p>
+    <p>Codex belongs in development: writing new tool functions and their tests. It is not given the client's file at run time.</p>
+    <h3>Checks before anything reaches Rhino</h3>
+    <p>Wardrobe depth range, plank width range, feature wall zones adding up to the wall, a 700 mm walkway between joinery and the bed, clashes between solids, and floor coverage. When a change fails, the agent says why and proposes the largest change that passes.</p>
+    <p class="example"><span class="q">Increase the wardrobe depth by another 300 mm.</span> wardrobe depth 1000 mm is outside 450-800 mm; walkway between wardrobe door and bed base would be 430 mm, below the 700 mm minimum. The most that passes is +30 mm.</p>
+  </div>
+  <div>
+    <table class="data tools"><caption>The only actions the model can request</caption><thead><tr><th scope="col">Tool</th><th scope="col">What it does</th></tr></thead>
+    <tbody><tr><th scope="row"><code>set_flooring</code></th><td>Wood, plank width (or the next stock width for &quot;wider&quot;), plank length</td></tr><tr><th scope="row"><code>set_wall_treatment</code></th><td>Left, centre, right or all of the feature wall: travertine, wood panels, fluted oak, plaster with shelf</td></tr><tr><th scope="row"><code>change_dimension</code></th><td>Depth, width, height or length of joinery and furniture, by an amount or to a value</td></tr><tr><th scope="row"><code>set_material</code></th><td>Material of an element, from the studio library only</td></tr><tr><th scope="row"><code>generate_variants</code></th><td>Up to four checked alternatives for the feature wall</td></tr><tr><th scope="row"><code>render_view</code></th><td>Hero, bed, wardrobe or plan view</td></tr><tr><th scope="row"><code>save_version</code></th><td>Writes the approved model as a new .3dm with its spec inside</td></tr><tr><th scope="row"><code>rollback</code></th><td>Restores a saved version</td></tr><tr><th scope="row"><code>ask_clarification</code></th><td>Used for anything unclear, unsupported or destructive</td></tr></tbody></table>
+    <h3 class="small">How well instructions become tool calls</h3>
+    <dl class="kv">
+      <div><dt>Offline parser, held-out phrasings (run once)</dt><dd>14 of 20 exact; 4 asked a question instead, 1 missed part of a two-part instruction, 1 disputed label</dd></div>
+      <div><dt>Earlier held-out round, before tuning</dt><dd>12 of 20</dd></div>
+      <div><dt>Phrasings it was written against</dt><dd>50 of 50</dd></div>
+      <div><dt>OpenAI path</dt><dd>Same tool schema, eval script included; not run here (no API key in the demo)</dd></div>
+    </dl>
+  </div>
+</div>
+<div class="prose wide">
+  <h3>The brief's instructions, as the agent handled them</h3>
+  <ul class="turns"><li><p class="q">Change the bedroom flooring to light walnut with wider planks.</p><ul class="ch"><li>flooring material: Oak natural → Walnut light</li><li>plank width (mm): 180 → 240</li></ul><p class="res approved">Approved. Rhino: 0 added, 28 removed, 84 changed.</p></li><li><p class="q">Replace the central wall treatment with large-format wood panels while retaining travertine on either side.</p><ul class="ch"><li>center zone treatment: travertine → large-format wood panels</li><li>center zone material: Travertine classic → Smoked oak veneer</li><li class="k">center cladding depth 20 → 18 mm</li><li class="k">Bed and bedside tables move 2 mm to stay against the headboard wall</li></ul><p class="res approved">Approved. Rhino: 2 added, 12 removed, 13 changed.</p></li><li><p class="q">Increase the wardrobe depth by 100 mm and adjust the adjacent cabinetry.</p><ul class="ch"><li>wardrobe depth (mm): 600 → 700</li><li class="k">Tall linen cabinet depth 600 → 700 mm (fronts stay flush)</li><li class="k">Drawer unit depth 450 → 550 mm (front stays 150 mm behind the wardrobe)</li><li class="k">Walkway to the bed 830 → 730 mm (minimum 700)</li></ul><p class="res approved">Approved. Rhino: 0 added, 0 removed, 17 changed.</p></li><li><p class="q">Increase the wardrobe depth by another 300 mm.</p><ul class="ch"><li>wardrobe depth (mm): 700 → 1000</li><li class="k">Tall linen cabinet depth 700 → 1000 mm (fronts stay flush)</li><li class="k">Drawer unit depth 550 → 850 mm (front stays 150 mm behind the wardrobe)</li><li class="k">Walkway to the bed 730 → 430 mm (minimum 700)</li></ul><p class="res blocked">Blocked: wardrobe depth 1000 mm is outside 450-800 mm; walkway between wardrobe door and bed base would be 430 mm, below the 700 mm minimum. The most that passes is +30 mm.</p></li></ul>
+</div>
+</section>
+
+<section class="sheet" id="phase3" aria-labelledby="phase3-t">
+  <header class="sheet-head"><h2 id="phase3-t">Phase 3. Interface, renders and versions</h2>
+    <dl class="tb"><div><dt>Sheet</dt><dd>A-301</dd></div><div><dt>Status</dt><dd>Built; renders are previews</dd></div></dl></header>
+  
+<div class="compare" id="compare">
+  <img src="renders/Version-1-hero.webp" alt="Version 1: oak floor and travertine feature wall." width="1600" height="1000" loading="lazy">
+  <div class="after"><img src="renders/Version-2-hero.webp" alt="Version 2: light walnut floor with wider planks, smoked oak panels in the centre of the feature wall, deeper wardrobe." width="1600" height="1000" loading="lazy"></div>
+  <label class="slider"><span class="vh">Compare Version 1 and Version 2</span><input type="range" min="0" max="100" value="50" id="cmp"></label>
+  <span class="tag l">Version 1</span><span class="tag r">Version 2</span>
+</div>
+<p class="figcap">Drag to compare. Version 2 is the result of instructions 1 to 3 and 5.</p>
+<div class="options"><figure><img src="renders/Variant-A-bed.webp" alt="Option A: Fluted oak centre" width="900" height="600" loading="lazy"><figcaption><b>Option A</b> Fluted oak centre<span>205 objects, checks passed, walkway 730 mm. <a href="models/Variant-A.3dm" download>Variant-A.3dm</a></span></figcaption></figure><figure><img src="renders/Variant-B-bed.webp" alt="Option B: Lime plaster with walnut shelf, silver travertine sides" width="900" height="600" loading="lazy"><figcaption><b>Option B</b> Lime plaster with walnut shelf, silver travertine sides<span>147 objects, checks passed, walkway 730 mm. <a href="models/Variant-B.3dm" download>Variant-B.3dm</a></span></figcaption></figure><figure><img src="renders/Variant-C-bed.webp" alt="Option C: Full-width smoked oak panels" width="900" height="600" loading="lazy"><figcaption><b>Option C</b> Full-width smoked oak panels<span>136 objects, checks passed, walkway 730 mm. <a href="models/Variant-C.3dm" download>Variant-C.3dm</a></span></figcaption></figure></div>
+<p class="figcap">Instruction 4: three alternatives for the feature wall, each checked and saved as its own file.</p>
+<table class="data files"><caption>Every file opened again with McNeel's rhino3dm reader (Python) and rebuilt from its own embedded spec by the Python generator that runs in Rhino.</caption>
+  <thead><tr><th scope="col">File</th><th scope="col">Version</th><th scope="col" class="n">Objects</th><th scope="col" class="n">Closed solids</th><th scope="col" class="n">With user text</th><th scope="col" class="n">Rebuild difference</th><th scope="col" class="n">Size</th><th scope="col"><span class="vh">Download</span></th></tr></thead>
+  <tbody><tr><th scope="row">Version-1.3dm</th><td>Version 1<span class="sub">Reconstructed from the rendering</span></td><td class="n">184</td><td class="n">184</td><td class="n">184</td><td class="n">0 mm</td><td class="n">2.3 MB</td><td><a class="dl" href="models/Version-1.3dm" download>.3dm</a></td></tr><tr><th scope="row">Version-2.3dm</th><td>Version 2<span class="sub">Walnut floor, wider planks; wood panel centre; wardrobe +100 mm</span></td><td class="n">146</td><td class="n">146</td><td class="n">146</td><td class="n">0 mm</td><td class="n">1.8 MB</td><td><a class="dl" href="models/Version-2.3dm" download>.3dm</a></td></tr><tr><th scope="row">Variant-A.3dm</th><td>Option A<span class="sub">Fluted oak centre</span></td><td class="n">205</td><td class="n">205</td><td class="n">205</td><td class="n">0 mm</td><td class="n">2.6 MB</td><td><a class="dl" href="models/Variant-A.3dm" download>.3dm</a></td></tr><tr><th scope="row">Variant-B.3dm</th><td>Option B<span class="sub">Lime plaster with walnut shelf, silver travertine sides</span></td><td class="n">147</td><td class="n">147</td><td class="n">147</td><td class="n">0 mm</td><td class="n">1.9 MB</td><td><a class="dl" href="models/Variant-B.3dm" download>.3dm</a></td></tr><tr><th scope="row">Variant-C.3dm</th><td>Option C<span class="sub">Full-width smoked oak panels</span></td><td class="n">136</td><td class="n">136</td><td class="n">136</td><td class="n">0 mm</td><td class="n">1.7 MB</td><td><a class="dl" href="models/Variant-C.3dm" download>.3dm</a></td></tr></tbody></table>
+<p class="note">All files pass: millimetre units, every object a closed solid with element, part and material user text, and a rebuild difference of 0 mm between the file and the Python generator. In Version 2 the wardrobe reads 700 mm deep, the tall unit 700 mm and the drawer unit 550 mm; planks are 240 mm in Walnut light.</p>
+</section>
+
+<section class="sheet" id="phase4" aria-labelledby="phase4-t">
+  <header class="sheet-head"><h2 id="phase4-t">Phase 4. Testing, handover and the proof of concept</h2>
+    <dl class="tb"><div><dt>Sheet</dt><dd>A-401</dd></div><div><dt>Status</dt><dd>Measured</dd></div></dl></header>
+  
+<div class="cols">
+  <div>
+    <table class="data poc"><caption>The paid proof of concept in the brief, and where each part stands in this demo</caption>
+    <thead><tr><th scope="col">Brief</th><th scope="col">In this demo</th><th scope="col">In your PoC</th></tr></thead><tbody>
+      <tr><th scope="row">One rendering reconstructed</th><td>Test rendering, errors measured (A-101)</td><td>Your rendering and drawings</td></tr>
+      <tr><th scope="row">Agent connected</th><td>Offline parser; Rhino functions tested outside Rhino</td><td>OpenAI and your Rhino 8 over MCP</td></tr>
+      <tr><th scope="row">Three or more conversational changes</th><td>Instructions 1 to 3 approved, one blocked with a reason</td><td>The same five instructions on your room</td></tr>
+      <tr><th scope="row">Updated visualisations</th><td>three.js previews</td><td>Rhino Render from saved views</td></tr>
+      <tr><th scope="row">Saved editable model</th><td>5 .3dm files, read back and checked</td><td>.3dm per version in your project folder</td></tr>
+    </tbody></table>
+  </div>
+  <div>
+    <h3 class="small">Tests and quality of this page</h3>
+    <dl class="kv">
+      <div><dt>Unit tests (Node)</dt><dd>20 passed</dd></div>
+      <div><dt>Rhino-side tests (Python, rhino3dm)</dt><dd>6 passed</dd></div>
+      <div><dt>Browser tests</dt><dd>7 passed</dd></div>
+      <div><dt>Accessibility (axe) at 390, 820, 1440 px</dt><dd>0 violations</dd></div>
+      <div><dt>Lighthouse on mobile settings, median of 3</dt><dd>Performance 98, accessibility 100, best practices 100</dd></div>
+    </dl>
+    <h3 class="small">Handover</h3>
+    <ul class="plain"><li>Source with tests, the Rhino Python functions and the setup guide for Rhino MCP</li><li>Material library and design rules as editable files</li><li>Recorded walkthrough and a live training session for the design team</li><li>All code, models and documents owned by you</li></ul>
+  </div>
+</div>
+</section>
+
+<section class="notes" aria-labelledby="notes-t">
+  <h2 id="notes-t">What is measured here, and what is not</h2>
+  <div class="cols">
+    <div><h3 class="small">Measured</h3><ul class="plain">
+      <li>Dimension recovery on a synthetic rendering with known truth, 2,000 repeats per click-error level</li>
+      <li>.3dm files: units, layers, closed solids, user text, embedded spec, rebuild by the Python generator (0 mm)</li>
+      <li>Manual-edit detection on a real .3dm: a 50 mm move, a deleted object and an extra object</li>
+      <li>Instruction parsing on 50 written and 20 held-out phrasings</li>
+      <li>Design checks, approvals, versions and rollback (hashes match after restore)</li>
+    </ul></div>
+    <div><h3 class="small">Not measured</h3><ul class="plain">
+      <li>Running inside Rhino 8 over MCP: no Rhino licence in this environment</li>
+      <li>Real client renderings, which can be retouched or composited</li>
+      <li>OpenAI accuracy and cost: the eval script is ready but needs your key</li>
+      <li>Rhino Render output and timing; images here are three.js previews</li>
+      <li>Curved or freeform elements: this sample uses straight joinery and panels</li>
+    </ul></div>
+  </div>
+  <p class="src">Sources: McNeel, <a href="https://www.rhino3d.com/for/ai/">Rhino and artificial intelligence</a> (tool groups and MCP clients); McNeel, <a href="https://docs.mcneel.com/rhino/9/help/en-us/commands/ai.htm">AI command and AI Settings</a>; McNeel forum, <a href="https://discourse.mcneel.com/t/rhino-beta-feature-rhinoai/223146">RhinoAI beta feature</a>. The bedroom, its dimensions and materials are invented for this demo.</p>
+</section>
+</main>
+<footer class="foot"><p>Sample room and data are fictional. Not indexed by search engines.</p></footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

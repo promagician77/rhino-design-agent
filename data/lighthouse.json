@@ -1,0 +1,34 @@
+{
+ "version": "13.6.0",
+ "runs": 3,
+ "rows": [
+  {
+   "form": "mobile",
+   "perf": 98,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 66,
+   "lcp": 2381,
+   "cls": 0,
+   "tbt": 80,
+   "kb": 254,
+   "seoFails": [
+    "is-crawlable"
+   ]
+  },
+  {
+   "form": "desktop",
+   "perf": 100,
+   "a11y": 100,
+   "bp": 100,
+   "seo": 66,
+   "lcp": 553,
+   "cls": 0,
+   "tbt": 0,
+   "kb": 254,
+   "seoFails": [
+    "is-crawlable"
+   ]
+  }
+ ]
+}
