@@ -1,6 +1,2 @@
-node_modules/
-.lh/
-site-dist/
-build/render/
-scratch/
-shots/
+config.bat
+node_modules
